@@ -50,6 +50,7 @@ services:
       rules:
         - host: plex.${TRAEFIK_DOMAIN}
           httpAuth: false
+          internalHost: 172.17.0.1
           internalPort: 32400
   - name: flaresolverr
     enabled: true

@@ -425,6 +425,8 @@ EOF
     # If VPN => Traefik rule should redirect to gluetun container
     backendHost=${name}
     [[ ${vpn} == "true" ]] && backendHost="gluetun"
+     internalHost=$(echo $rule | jq -r .internalHost)
+    [[ ${internalHost} != "null" ]] && backendHost=${internalHost}
 
     # Handle custom scheme (default if non-specified is http)
     internalScheme="http"
